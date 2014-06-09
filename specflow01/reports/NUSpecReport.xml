@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\pascal\develop\projects\specflow01\specflow01.NUTest.AT\bin\Debug\specflow01.NUTest.AT.dll" total="3" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-06-08" time="15:50:35">
-  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.5477" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Users\pascal\develop\projects\specflow01" machine-name="TAIPEI" user="pascal" user-domain="taipei" />
+<test-results name="C:\Users\pascal\develop\projects\specflow\specflow01\specflow01.NUTest.AT\bin\Debug\specflow01.NUTest.AT.dll" total="3" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-06-09" time="10:28:40">
+  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.5477" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Users\pascal\develop\projects\specflow\specflow01" machine-name="TAIPEI" user="pascal" user-domain="taipei" />
   <culture-info current-culture="de-DE" current-uiculture="de-DE" />
-  <test-suite type="Assembly" name="C:\Users\pascal\develop\projects\specflow01\specflow01.NUTest.AT\bin\Debug\specflow01.NUTest.AT.dll" executed="True" result="Success" success="True" time="1.144" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\pascal\develop\projects\specflow\specflow01\specflow01.NUTest.AT\bin\Debug\specflow01.NUTest.AT.dll" executed="True" result="Success" success="True" time="1.126" asserts="0">
     <results>
-      <test-suite type="Namespace" name="specflow01" executed="True" result="Success" success="True" time="1.121" asserts="0">
+      <test-suite type="Namespace" name="specflow01" executed="True" result="Success" success="True" time="1.104" asserts="0">
         <results>
-          <test-suite type="Namespace" name="NUTest" executed="True" result="Success" success="True" time="1.121" asserts="0">
+          <test-suite type="Namespace" name="NUTest" executed="True" result="Success" success="True" time="1.104" asserts="0">
             <results>
-              <test-suite type="Namespace" name="AT" executed="True" result="Success" success="True" time="1.120" asserts="0">
+              <test-suite type="Namespace" name="AT" executed="True" result="Success" success="True" time="1.104" asserts="0">
                 <results>
-                  <test-suite type="TestFixture" name="AdditionFeature" description="Addition" executed="True" result="Success" success="True" time="1.116" asserts="0">
+                  <test-suite type="TestFixture" name="AdditionFeature" description="Addition" executed="True" result="Success" success="True" time="1.099" asserts="0">
                     <results>
-                      <test-case name="specflow01.NUTest.AT.AdditionFeature.Add3Numbers" description="Add 3 numbers" executed="True" result="Success" success="True" time="0.434" asserts="1" />
-                      <test-case name="specflow01.NUTest.AT.AdditionFeature.AddOtherNumbers" description="Add other numbers" executed="True" result="Success" success="True" time="0.004" asserts="1" />
-                      <test-case name="specflow01.NUTest.AT.AdditionFeature.AddTwoNumbers" description="Add two numbers" executed="True" result="Success" success="True" time="0.002" asserts="1">
+                      <test-case name="specflow01.NUTest.AT.AdditionFeature.Add3Numbers" description="Add 3 numbers" executed="True" result="Success" success="True" time="0.428" asserts="1" />
+                      <test-case name="specflow01.NUTest.AT.AdditionFeature.AddOtherNumbers" description="Add other numbers" executed="True" result="Success" success="True" time="0.007" asserts="1" />
+                      <test-case name="specflow01.NUTest.AT.AdditionFeature.AddTwoNumbers" description="Add two numbers" executed="True" result="Success" success="True" time="0.003" asserts="1">
                         <categories>
                           <category name="mytag" />
                         </categories>

@@ -8,22 +8,29 @@
 
 	<PropertyGroup>
 		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		<ProjectName>specflow01</ProjectName>
+		<ProjectName>specflow01.NUTest.AT</ProjectName>
 
-		<NUnitExe>packages\NUnit.Runners.2.6.3\tools\nunit-console.exe</NUnitExe>
-		<NUTestAssemblies>specflow01.NUTest\bin\$(Configuration)\specflow01.NUTest.dll</NUTestAssemblies>
+		<NUnitExe>..\packages\NUnit.Runners.2.6.3\tools\nunit-console.exe</NUnitExe>
+		<NUTestAssemblies>bin\$(Configuration)\$(ProjectName).dll</NUTestAssemblies>
 
-		<SpecflowExe>packages\SpecFlow.1.9.0\tools\specflow.exe</SpecflowExe>
-		<SpecProjectFile>specflow01.NUTest.AT\specflow01.NUTest.AT.csproj</SpecProjectFile>
-		<SpecAssemblies>specflow01.NUTest.AT\bin\$(Configuration)\specflow01.NUTest.AT.dll</SpecAssemblies>
+		<SpecflowExe>..\packages\SpecFlow.1.9.0\tools\specflow.exe</SpecflowExe>
+		<SpecProjectFile>$(ProjectName).csproj</SpecProjectFile>
+		<SpecAssemblies>bin\$(Configuration)\$(ProjectName).dll</SpecAssemblies>
 
 		<ReportHome>packages\ReportGenerator.1.9.1.0</ReportHome>
 		<ReportExe>$(ReportHome)\ReportGenerator.exe</ReportExe>
 	</PropertyGroup>
 
+	<!--
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	-->
+	<Import Project="$(ProjectName).csproj" />
+	<Import Project="..\packages\SpecFlow.1.9.0\Tools\TechTalk.SpecFlow.targets" />
+
 	<!-- ===================================================================== -->
 	<Target Name="Show" >
 		<Message Text="Configuration:   $(Configuration)" />
+		<Message Text="OutputPath:      $(OutputPath)" />
 		<Message Text="Targets:" />
 		<Message Text="- Build" />
 		<Message Text="- SpecGen" />
@@ -32,10 +39,11 @@
 	</Target>
 
 	<!-- builds ============================================================== -->
-	<Target Name="Build" >
+	<!-- build: remove depends on specgen, if specflow.targets are imported!   -->
+	<Target Name="Build" DependsOnTargets="SpecGen">
 		<MSBuild 
 			Targets="Clean;Rebuild" 
-			Projects="specflow01.sln"
+			Projects="$(ProjectName).csproj"
 			ContinueOnError="false" />
 	</Target>
 
