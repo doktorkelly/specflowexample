@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- VERSION 2014-03-26T11:30:00 -->
+
+<Project 
+	DefaultTargets="Show"
+	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+
+		<NUnitExe>packages\NUnit.Runners.2.6.3\tools\nunit-console.exe</NUnitExe>
+		<NUTestAssemblies>specflow01.NUTest\bin\$(Configuration)\specflow01.NUTest.dll</NUTestAssemblies>
+
+		<SpecflowExe>packages\SpecFlow.1.9.0\tools\specflow.exe</SpecflowExe>
+		<SpecProjectFile>specflow01.NUTest.AT\specflow01.NUTest.AT.csproj</SpecProjectFile>
+		<SpecAssemblies>specflow01.NUTest.AT\bin\$(Configuration)\specflow01.NUTest.AT.dll</SpecAssemblies>
+
+
+		<ReportHome>packages\ReportGenerator.1.9.1.0</ReportHome>
+		<ReportExe>$(ReportHome)\ReportGenerator.exe</ReportExe>
+	</PropertyGroup>
+
+	<Target Name="Show" >
+		<Message Text="Configuration:   $(Configuration)" />
+		<Message Text="Targets:" />
+		<Message Text="- Build" />
+		<Message Text="- NUTest" />
+		<Message Text="- NUSpecGen" />
+		<Message Text="- NUSpecRun" />
+	</Target>
+
+	<Target Name="Build" >
+		<MSBuild 
+			Targets="Clean;Rebuild" 
+			Projects="specflow01.sln"
+			ContinueOnError="false" />
+	</Target>
+
+	<Target Name="NUTest" >
+		<Exec Command="$(NUnitExe) $(NUTestAssemblies) /xml=reports/NUnitReport.xml"/>
+	</Target>
+
+	<Target Name="NUSpecGen" >
+		<Exec Command="$(SpecflowExe) generateall $(SpecProjectFile) /force /verbose "/>
+	</Target>
+
+	<Target Name="NUSpecRun" >
+		<Exec Command="$(NUnitExe) $(SpecAssemblies) /xml=reports/NUSpecReport.xml"
+			ContinueOnError="true"/>
+		<Exec Command="$(SpecflowExe) nunitexecutionreport $(SpecProjectFile) /xmlTestResult:reports/NUSpecReport.xml /out:reports/NUSpecReport.html"/>
+	</Target>
+
+</Project>
